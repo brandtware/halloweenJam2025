@@ -1,0 +1,25 @@
+join narrator center
+narrator: It was all hallows eve 1999. Sue and Tom just started their nightshift in the museum.
+join tom center
+tom: Hey Sue,\
+the artifacts for the egyptian exhibit finally arrived!
+join sue center
+sue: Ugh, let me take of my jacket first... the lunatics are already afoot. It seems like they will be dancing naked in the park tonight.
+tom: Yeah, sure... wait, WHAT?
+narrator: Sue hung her jacket on the peg and sat down at the monitoring station.
+sue: So, tell me about the delivery.
+tom: There are boxes and boxes of old egyptian stuff, it's sooooo cool! I can't wait for it to be opened and showcased!
+[signal arg="fade_out"]
+narrator: TWO HOURS LATER
+[signal arg="fade_in"]
+narrator: A cracking sound echoes through the building.
+[signal arg="intro_lightsOut"]
+tom: What's happening?
+narrator: There was a sulfury scent in the air. All electric lights turned off... besides the monitors, which just showed static.
+tom: Damn, the video system crashed. I am going to reboot it, I'll take the radio with me. Be right back...
+narrator: A whizzing sound came from the radio and the monitoring station came back to life.
+tom: (static) So, everything should be back online, do you copy Sue?
+sue: Ehm... yes it is, but the motion sensors in the staging area just activated...
+tom: (static) That shouldn't be possible? Damn, if one of these lunatics climbed in during the power outage I'm gonna kick his ass...
+sue: Be careful, you never know what these freaks are capable off... I'm gonna watch your back Tom.
+tom: No worries... besides, I wanted to see the goods anyway \:D
