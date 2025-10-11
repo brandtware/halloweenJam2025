@@ -1,3 +1,5 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+/old tv.blend
+/old tv.blend.import

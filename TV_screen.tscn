@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnysj8njskxl2"]
+
+[ext_resource type="Script" uid="uid://0b4y2qo7no1h" path="res://tv_screen.gd" id="1_tu7q1"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_4ws4d"]
+
+[node name="TV_Screen" type="MeshInstance3D"]
+transform = Transform3D(0.5069749, 0, 0, 0, -4.371139e-08, -0.40621996, 0, 1, -1.7756438e-08, 0, 0, 0)
+mesh = SubResource("PlaneMesh_4ws4d")
+script = ExtResource("1_tu7q1")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+handle_input_locally = false
+size = Vector2i(1152, 642)
+render_target_update_mode = 4
+
+[node name="CameraView1" type="Camera3D" parent="SubViewport"]
+transform = Transform3D(-0.7741717, 0, 0.63297564, 0, 1, 0, -0.63297564, 0, -0.7741717, 1.653646, 0.680925, -1.463737)
+current = true
+
+[node name="CameraView2" type="Camera3D" parent="SubViewport"]
+transform = Transform3D(-0.71419185, 0, -0.69995004, 0, 1, 0, 0.69995004, 0, -0.71419185, -1.530601, 0.680925, -1.463737)
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="SubViewport"]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+visible = false
+shadow_enabled = true
