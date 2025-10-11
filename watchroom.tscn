@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3 uid="uid://i6inlj4yhv7o"]
+
+[ext_resource type="Script" uid="uid://o2eh7grb4kte" path="res://watchroom.gd" id="1_1hxqw"]
+[ext_resource type="PackedScene" uid="uid://eodivk6dpf32" path="res://old tv.glb" id="1_6duup"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1hxqw"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_4ws4d"]
+sky_material = SubResource("ProceduralSkyMaterial_1hxqw")
+
+[sub_resource type="Environment" id="Environment_m20eu"]
+background_mode = 2
+sky = SubResource("Sky_4ws4d")
+tonemap_mode = 2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_4ws4d"]
+
+[node name="Watchroom" type="Node3D"]
+script = ExtResource("1_1hxqw")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_m20eu")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(6.7200003, 0, 0, 0, 0.11999996, 0, 0, 0, 5.04, 0, 0, 0)
+
+[node name="old tv3" parent="." instance=ExtResource("1_6duup")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.44420493, 0.60060334, -0.034903288)
+
+[node name="Mesh3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5069749, 0, 0, 0, -4.371139e-08, -0.40621996, 0, 1, -1.7756438e-08, 0.25155836, 0.59959495, 0.57556474)
+mesh = SubResource("PlaneMesh_4ws4d")
+
+[node name="SubViewport" type="SubViewport" parent="Mesh3D"]
+handle_input_locally = false
+size = Vector2i(1152, 642)
+render_target_update_mode = 4
+
+[node name="Camera3D2" type="Camera3D" parent="Mesh3D/SubViewport"]
+transform = Transform3D(-0.7741717, 0, 0.63297564, 0, 1, 0, -0.63297564, 0, -0.7741717, 1.653646, 0.680925, -1.463737)
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="Mesh3D/SubViewport"]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Mesh3D/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4275666, 0.30847007, 0.74449766)
+visible = false
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0074849, 2.1384606)
