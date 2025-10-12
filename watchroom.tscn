@@ -1,8 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://i6inlj4yhv7o"]
+[gd_scene load_steps=13 format=3 uid="uid://i6inlj4yhv7o"]
 
 [ext_resource type="Script" uid="uid://o2eh7grb4kte" path="res://watchroom.gd" id="1_1hxqw"]
 [ext_resource type="PackedScene" uid="uid://doqnwis60r50t" path="res://tv.tscn" id="2_1hxqw"]
 [ext_resource type="PackedScene" uid="uid://4aeahybfjxoo" path="res://Level1.tscn" id="3_4ws4d"]
+[ext_resource type="PackedScene" uid="uid://dh5ow3dtu1wvf" path="res://sue.glb" id="4_m20eu"]
+[ext_resource type="PackedScene" uid="uid://birjxdd5rdx7a" path="res://tom.glb" id="5_qqrra"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1hxqw"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -67,7 +69,7 @@ size = Vector3(2.425293, 1, 1)
 material = SubResource("StandardMaterial3D_qqrra")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.96090007, 0.2768954, 0, -0.2768954, 0.96090007, 0.28320408, 4.010255, 2.5352855)
+transform = Transform3D(1, 0, 0, 0, 0.96312034, 0.269071, 0, -0.269071, 0.96312034, 1.9354401, 3.3429317, 1.3521857)
 
 [node name="TV_Level1" parent="." instance=ExtResource("2_1hxqw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.074644, 2.919125, 0.0059137344)
@@ -106,6 +108,12 @@ spot_range = 20.0
 
 [node name="Room" parent="." instance=ExtResource("3_4ws4d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.855004, 0, 0)
+
+[node name="sue" parent="." instance=ExtResource("4_m20eu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.029657, 0.65622425, 3.7516794)
+
+[node name="tom" parent="." instance=ExtResource("5_qqrra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.1991796, 0.7542486, 4.8715363)
 
 [editable path="TV_Level1"]
 [editable path="TV_Level1/TV_Screen"]
