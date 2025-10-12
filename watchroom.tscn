@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://i6inlj4yhv7o"]
+[gd_scene load_steps=11 format=3 uid="uid://i6inlj4yhv7o"]
 
 [ext_resource type="Script" uid="uid://o2eh7grb4kte" path="res://watchroom.gd" id="1_1hxqw"]
 [ext_resource type="PackedScene" uid="uid://doqnwis60r50t" path="res://tv.tscn" id="2_1hxqw"]
+[ext_resource type="PackedScene" uid="uid://4aeahybfjxoo" path="res://Level1.tscn" id="3_4ws4d"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1hxqw"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -66,10 +67,16 @@ size = Vector3(2.425293, 1, 1)
 material = SubResource("StandardMaterial3D_qqrra")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.96090007, 0.2768954, 0, -0.2768954, 0.96090007, 2.611857, 4.010255, 6.8982797)
+transform = Transform3D(1, 0, 0, 0, 0.96090007, 0.2768954, 0, -0.2768954, 0.96090007, 0.28320408, 4.010255, 2.5352855)
 
 [node name="TV_Level1" parent="." instance=ExtResource("2_1hxqw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.074644, 2.919125, 0.0059137344)
+
+[node name="CameraView1" parent="TV_Level1/TV_Screen/SubViewport" index="0"]
+transform = Transform3D(0.42532653, 0.39822587, -0.81271976, -0.0073503945, 0.89948374, 0.43689278, 0.9050103, -0.17984828, 0.38550135, -18.684433, 2.381849, 3.7331667)
+
+[node name="CameraView2" parent="TV_Level1/TV_Screen/SubViewport" index="1"]
+transform = Transform3D(-0.7704181, 0.3458578, -0.5355729, -0.033199918, 0.81715876, 0.5754558, 0.6366739, 0.46112254, -0.61807144, -18.713867, 1.963242, -3.5842159)
 
 [node name="TV_Level2" parent="." instance=ExtResource("2_1hxqw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4589926, 2.919125, 0)
@@ -97,6 +104,11 @@ transform = Transform3D(1, 0, 0, 0, 0.49999997, 0.86602545, 0, -0.86602545, 0.49
 shadow_enabled = true
 spot_range = 20.0
 
+[node name="Room" parent="." instance=ExtResource("3_4ws4d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.855004, 0, 0)
+
+[editable path="TV_Level1"]
+[editable path="TV_Level1/TV_Screen"]
 [editable path="TV_Level2"]
 [editable path="TV_Level2/TV_Screen"]
 [editable path="TV_Level3"]

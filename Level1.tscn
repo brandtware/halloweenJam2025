@@ -1,0 +1,133 @@
+[gd_scene load_steps=8 format=3 uid="uid://4aeahybfjxoo"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ma5b5"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_kyxg0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mc20k"]
+albedo_color = Color(0.24993679, 0.17971611, 0.08876955, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_cove1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dwyiq"]
+albedo_color = Color(0.48948187, 0.31132904, 0.063764885, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dn5ey"]
+albedo_color = Color(0.06053035, 0.06053035, 0.060530342, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_lmyl5"]
+material = SubResource("StandardMaterial3D_dn5ey")
+
+[node name="Level1" type="Node3D"]
+
+[node name="Walls" type="Node3D" parent="."]
+
+[node name="Floor" type="MeshInstance3D" parent="Walls"]
+transform = Transform3D(8, 0, 0, 0, 0.05, 0, 0, 0, 10, 0, 0, 0)
+mesh = SubResource("BoxMesh_ma5b5")
+skeleton = NodePath("../..")
+
+[node name="Ceiling" type="MeshInstance3D" parent="Walls"]
+transform = Transform3D(8, 0, 0, 0, 0.05, 0, 0, 0, 10, 0, 6, 0)
+mesh = SubResource("BoxMesh_ma5b5")
+skeleton = NodePath("../..")
+
+[node name="Wall" type="MeshInstance3D" parent="Walls"]
+transform = Transform3D(-2.6226832e-07, -0.05, 0, 6, -2.1855695e-09, 0, 0, 0, 10, -4, 3, 0)
+visible = false
+mesh = SubResource("BoxMesh_ma5b5")
+skeleton = NodePath("../..")
+
+[node name="Wall2" type="MeshInstance3D" parent="Walls"]
+transform = Transform3D(-2.6226832e-07, -0.05, 0, 6, -2.1855695e-09, 0, 0, 0, 10, 4, 3, 0)
+visible = false
+mesh = SubResource("BoxMesh_ma5b5")
+skeleton = NodePath("../..")
+
+[node name="Wall3" type="MeshInstance3D" parent="Walls"]
+transform = Transform3D(2.7464195e-09, 2.1854496e-09, 8, 5.999671, -0.0005235896, 0, 0.06283075, 0.04999726, -3.496911e-07, 0, 3, 5)
+visible = false
+mesh = SubResource("BoxMesh_ma5b5")
+skeleton = NodePath("../..")
+
+[node name="Wall4" type="MeshInstance3D" parent="Walls"]
+transform = Transform3D(2.7464195e-09, 2.1854496e-09, 8, 5.999671, -0.0005235896, 0, 0.06283075, 0.04999726, -3.496911e-07, 0, 3, -5)
+visible = false
+mesh = SubResource("BoxMesh_ma5b5")
+skeleton = NodePath("../..")
+
+[node name="Furniture" type="Node3D" parent="."]
+
+[node name="Regal" type="MeshInstance3D" parent="Furniture"]
+transform = Transform3D(8, 0, 0, 0, 3, 0, 0, 0, 1, -0.055283546, 1.5, -4.385498)
+mesh = SubResource("BoxMesh_kyxg0")
+surface_material_override/0 = SubResource("StandardMaterial3D_mc20k")
+
+[node name="Regal2" type="MeshInstance3D" parent="Furniture"]
+transform = Transform3D(8, 0, 0, 0, 3, 0, 0, 0, 1, -0.055283546, 1.5, 4.439679)
+mesh = SubResource("BoxMesh_kyxg0")
+surface_material_override/0 = SubResource("StandardMaterial3D_mc20k")
+
+[node name="Regal3" type="MeshInstance3D" parent="Furniture"]
+transform = Transform3D(-3.496911e-07, 0, 1, 0, 3, 0, -8, 0, -4.371139e-08, -3.4192972, 1.5, -0.043879032)
+mesh = SubResource("BoxMesh_kyxg0")
+surface_material_override/0 = SubResource("StandardMaterial3D_mc20k")
+
+[node name="Regal4" type="MeshInstance3D" parent="Furniture"]
+transform = Transform3D(-2.6226832e-07, 0, 1, 0, 3, 0, -6, 0, -4.371139e-08, 3.4226446, 1.499999, -1.059413)
+mesh = SubResource("BoxMesh_kyxg0")
+surface_material_override/0 = SubResource("StandardMaterial3D_mc20k")
+
+[node name="Box" type="MeshInstance3D" parent="Furniture"]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0.388416, 2.1146474)
+mesh = SubResource("BoxMesh_cove1")
+surface_material_override/0 = SubResource("StandardMaterial3D_dwyiq")
+
+[node name="Box4" type="MeshInstance3D" parent="Furniture"]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -0.7711554, 0.388416, 2.1146474)
+mesh = SubResource("BoxMesh_cove1")
+surface_material_override/0 = SubResource("StandardMaterial3D_dwyiq")
+
+[node name="Box5" type="MeshInstance3D" parent="Furniture"]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -0.4357108, 1.1545279, 2.1146474)
+mesh = SubResource("BoxMesh_cove1")
+surface_material_override/0 = SubResource("StandardMaterial3D_dwyiq")
+
+[node name="Box2" type="MeshInstance3D" parent="Furniture"]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0.81812394, 0.388416, 2.1146474)
+mesh = SubResource("BoxMesh_cove1")
+surface_material_override/0 = SubResource("StandardMaterial3D_dwyiq")
+
+[node name="Box3" type="MeshInstance3D" parent="Furniture"]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0.36563623, 1.1459446, 2.1146474)
+mesh = SubResource("BoxMesh_cove1")
+surface_material_override/0 = SubResource("StandardMaterial3D_dwyiq")
+
+[node name="Box6" type="MeshInstance3D" parent="Furniture"]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0.388416, -2.020018)
+mesh = SubResource("BoxMesh_cove1")
+surface_material_override/0 = SubResource("StandardMaterial3D_dwyiq")
+
+[node name="Box7" type="MeshInstance3D" parent="Furniture"]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -0.7711554, 0.388416, -2.020018)
+mesh = SubResource("BoxMesh_cove1")
+surface_material_override/0 = SubResource("StandardMaterial3D_dwyiq")
+
+[node name="Box8" type="MeshInstance3D" parent="Furniture"]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -0.4357108, 1.1545279, -2.020018)
+mesh = SubResource("BoxMesh_cove1")
+surface_material_override/0 = SubResource("StandardMaterial3D_dwyiq")
+
+[node name="Box9" type="MeshInstance3D" parent="Furniture"]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0.81812394, 0.388416, -2.020018)
+mesh = SubResource("BoxMesh_cove1")
+surface_material_override/0 = SubResource("StandardMaterial3D_dwyiq")
+
+[node name="Box10" type="MeshInstance3D" parent="Furniture"]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0.36563623, 1.1459446, -2.020018)
+mesh = SubResource("BoxMesh_cove1")
+surface_material_override/0 = SubResource("StandardMaterial3D_dwyiq")
+
+[node name="Sargopharg" type="MeshInstance3D" parent="Furniture"]
+transform = Transform3D(-4.3711385e-08, -0.99999994, 0, 0.99999994, -4.3711385e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_lmyl5")
