@@ -1,0 +1,48 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3m5hd85qtg7m"]
+
+[ext_resource type="Script" uid="uid://cvyy2hooqps0f" path="res://tv_ui.gd" id="1_wngfe"]
+
+[node name="TV_UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 302.0
+offset_right = -137.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wngfe")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -122.0
+offset_top = -68.0
+offset_bottom = 68.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="move" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "move"
+
+[node name="left" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "turn left"
+
+[node name="right" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "turn right"
+
+[node name="switch" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "switch camera"
+
+[connection signal="button_down" from="VBoxContainer/move" to="." method="_on_move_button_down"]
+[connection signal="button_down" from="VBoxContainer/left" to="." method="_on_left_button_down"]
+[connection signal="button_down" from="VBoxContainer/right" to="." method="_on_right_button_down"]
+[connection signal="button_down" from="VBoxContainer/switch" to="." method="_on_switch_button_down"]

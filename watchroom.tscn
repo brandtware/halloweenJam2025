@@ -1,10 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://i6inlj4yhv7o"]
+[gd_scene load_steps=15 format=3 uid="uid://i6inlj4yhv7o"]
 
 [ext_resource type="Script" uid="uid://o2eh7grb4kte" path="res://watchroom.gd" id="1_1hxqw"]
 [ext_resource type="PackedScene" uid="uid://doqnwis60r50t" path="res://tv.tscn" id="2_1hxqw"]
 [ext_resource type="PackedScene" uid="uid://4aeahybfjxoo" path="res://Level1.tscn" id="3_4ws4d"]
 [ext_resource type="PackedScene" uid="uid://dh5ow3dtu1wvf" path="res://sue.glb" id="4_m20eu"]
 [ext_resource type="PackedScene" uid="uid://birjxdd5rdx7a" path="res://tom.glb" id="5_qqrra"]
+[ext_resource type="PackedScene" uid="uid://rys7bkfyey3g" path="res://Chair.glb" id="6_ts337"]
+[ext_resource type="PackedScene" uid="uid://b3m5hd85qtg7m" path="res://tv_ui.tscn" id="6_xrp8s"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1hxqw"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -15,11 +17,9 @@ sky_material = SubResource("ProceduralSkyMaterial_1hxqw")
 
 [sub_resource type="Environment" id="Environment_m20eu"]
 background_mode = 2
+background_energy_multiplier = 0.8
 sky = SubResource("Sky_4ws4d")
 tonemap_mode = 2
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1hxqw"]
-albedo_color = Color(0.281015, 0.21642557, 0.123957984, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4ws4d"]
 albedo_color = Color(0.54507536, 0.64435774, 0.8285864, 1)
@@ -30,16 +30,19 @@ albedo_color = Color(0.22223902, 0.11137361, 0.044436052, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qqrra"]
 albedo_color = Color(0.27047417, 0.30305916, 0.4064536, 1)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1hxqw"]
+albedo_color = Color(0.281015, 0.21642557, 0.123957984, 1)
+
 [node name="Watchroom" type="Node3D"]
 script = ExtResource("1_1hxqw")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_m20eu")
 
-[node name="Tisch" type="CSGBox3D" parent="."]
-transform = Transform3D(6.7200003, 0, 0, 0, 0.11999996, 0, 0, 0, 5.04, 0.38882813, 2.3224974, -1.1124821)
-size = Vector3(0.88427734, 1, 1)
-material = SubResource("StandardMaterial3D_1hxqw")
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.49999997, 0.86602545, 0, -0.86602545, 0.49999997, 0, 8, 6)
+shadow_enabled = true
+spot_range = 20.0
 
 [node name="Waende" type="Node3D" parent="."]
 
@@ -69,56 +72,68 @@ size = Vector3(2.425293, 1, 1)
 material = SubResource("StandardMaterial3D_qqrra")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.96312034, 0.269071, 0, -0.269071, 0.96312034, 1.9354401, 3.3429317, 1.3521857)
-
-[node name="TV_Level1" parent="." instance=ExtResource("2_1hxqw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.074644, 2.919125, 0.0059137344)
-
-[node name="CameraView1" parent="TV_Level1/TV_Screen/SubViewport" index="0"]
-transform = Transform3D(0.42532653, 0.39822587, -0.81271976, -0.0073503945, 0.89948374, 0.43689278, 0.9050103, -0.17984828, 0.38550135, -18.684433, 2.381849, 3.7331667)
-
-[node name="CameraView2" parent="TV_Level1/TV_Screen/SubViewport" index="1"]
-transform = Transform3D(-0.7704181, 0.3458578, -0.5355729, -0.033199918, 0.81715876, 0.5754558, 0.6366739, 0.46112254, -0.61807144, -18.713867, 1.963242, -3.5842159)
-
-[node name="TV_Level2" parent="." instance=ExtResource("2_1hxqw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4589926, 2.919125, 0)
-
-[node name="CameraView1" parent="TV_Level2/TV_Screen/SubViewport" index="0"]
-transform = Transform3D(-0.022076666, 0, -0.9997562, 0, 1, 0, 0.9997562, 0, -0.022076666, -1.7464283, 0.680925, 1.0623577)
-
-[node name="CameraView2" parent="TV_Level2/TV_Screen/SubViewport" index="1"]
-transform = Transform3D(0.8446272, 0, 0.535355, 0, 1, 0, -0.535355, 0, 0.8446272, 2.0640268, 0.680925, 1.6690974)
-
-[node name="TV_Level3" parent="." instance=ExtResource("2_1hxqw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1716653, 2.919125, 0)
-
-[node name="TV_Level4" parent="." instance=ExtResource("2_1hxqw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.074644, 3.975881, 0.0059137344)
-
-[node name="TV_Level5" parent="." instance=ExtResource("2_1hxqw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4589926, 3.975881, 0)
-
-[node name="TV_Level6" parent="." instance=ExtResource("2_1hxqw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1716653, 3.975881, 0)
-
-[node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.49999997, 0.86602545, 0, -0.86602545, 0.49999997, 0, 8, 6)
-shadow_enabled = true
-spot_range = 20.0
+transform = Transform3D(1, 0, 0, 0, 0.96312034, 0.269071, 0, -0.269071, 0.96312034, 1.1117017, 4.660428, 8.091867)
+visible = false
 
 [node name="Room" parent="." instance=ExtResource("3_4ws4d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.855004, 0, 0)
 
+[node name="Moebel" type="Node3D" parent="."]
+
+[node name="TV_Level1" parent="Moebel" instance=ExtResource("2_1hxqw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.074644, 2.919125, 0.0059137344)
+
+[node name="CameraView1" parent="Moebel/TV_Level1/TV_Screen/SubViewport" index="0"]
+transform = Transform3D(0.42532653, 0.39822587, -0.81271976, -0.0073503945, 0.89948374, 0.43689278, 0.9050103, -0.17984828, 0.38550135, -18.684433, 2.381849, 3.7331667)
+
+[node name="CameraView2" parent="Moebel/TV_Level1/TV_Screen/SubViewport" index="1"]
+transform = Transform3D(-0.82793903, 0.41344845, -0.37891653, 0.059507277, 0.7366008, 0.6737051, 0.55765235, 0.5352384, -0.6344635, -18.713867, 4.7202263, -3.5842159)
+
+[node name="TV_Level2" parent="Moebel" instance=ExtResource("2_1hxqw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4589926, 2.919125, 0)
+
+[node name="CameraView1" parent="Moebel/TV_Level2/TV_Screen/SubViewport" index="0"]
+transform = Transform3D(-0.022076666, 0, -0.9997562, 0, 1, 0, 0.9997562, 0, -0.022076666, -1.7464283, 0.680925, 1.0623577)
+
+[node name="CameraView2" parent="Moebel/TV_Level2/TV_Screen/SubViewport" index="1"]
+transform = Transform3D(0.8446272, 0, 0.535355, 0, 1, 0, -0.535355, 0, 0.8446272, 2.0640268, 0.680925, 1.6690974)
+
+[node name="TV_Level3" parent="Moebel" instance=ExtResource("2_1hxqw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1716653, 2.919125, 0)
+
+[node name="TV_Level4" parent="Moebel" instance=ExtResource("2_1hxqw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.074644, 3.975881, 0.0059137344)
+
+[node name="TV_Level5" parent="Moebel" instance=ExtResource("2_1hxqw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4589926, 3.975881, 0)
+
+[node name="TV_Level6" parent="Moebel" instance=ExtResource("2_1hxqw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1716653, 3.975881, 0)
+
+[node name="Chair_Sue" parent="Moebel" instance=ExtResource("6_ts337")]
+transform = Transform3D(-1.5998892, 0, 0.01882118, 0, 1.5999999, 0, -0.01882118, 0, -1.5998892, 2.3215342, 0.057711303, 3.786221)
+
+[node name="Chair_Tom" parent="Moebel" instance=ExtResource("6_ts337")]
+transform = Transform3D(-1.5998892, 0, 0.01882118, 0, 1.5999999, 0, -0.01882118, 0, -1.5998892, -0.8891401, 0.057711303, 3.786221)
+
+[node name="Tisch" type="CSGBox3D" parent="Moebel"]
+transform = Transform3D(6.7200003, 0, 0, 0, 0.11999996, 0, 0, 0, 5.04, 0.38882732, 2.3224974, -1.1124821)
+size = Vector3(0.88427734, 1, 1)
+material = SubResource("StandardMaterial3D_1hxqw")
+
 [node name="sue" parent="." instance=ExtResource("4_m20eu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.029657, 0.65622425, 3.7516794)
+transform = Transform3D(-0.2998833, 0, 0.008366, 0, 0.29999998, 0, -0.008366, 0, -0.2998833, 2.3165894, 0.08980465, 3.7516794)
 
 [node name="tom" parent="." instance=ExtResource("5_qqrra")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.1991796, 0.7542486, 4.8715363)
+transform = Transform3D(-0.29995385, 0, 0.005261912, 0, 0.3, 0, -0.005261912, 0, -0.29995385, -0.875309, 0.021744251, 3.4320145)
 
-[editable path="TV_Level1"]
-[editable path="TV_Level1/TV_Screen"]
-[editable path="TV_Level2"]
-[editable path="TV_Level2/TV_Screen"]
-[editable path="TV_Level3"]
-[editable path="TV_Level5"]
-[editable path="TV_Level6"]
+[node name="TV_UI" parent="." instance=ExtResource("6_xrp8s")]
+visible = false
+
+[editable path="Moebel/TV_Level1"]
+[editable path="Moebel/TV_Level1/TV_Screen"]
+[editable path="Moebel/TV_Level2"]
+[editable path="Moebel/TV_Level2/TV_Screen"]
+[editable path="Moebel/TV_Level3"]
+[editable path="Moebel/TV_Level5"]
+[editable path="Moebel/TV_Level6"]
