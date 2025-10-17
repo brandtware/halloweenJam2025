@@ -1,5 +1,6 @@
 join narrator center
 narrator: It was all hallows eve 1999. Sue and Tom just started their nightshift in the museum.
+jump end
 join tom center
 tom: Hey Sue,\
 the artifacts for the egyptian exhibit finally arrived!
@@ -20,6 +21,9 @@ tom: Damn, the video system crashed. I am going to reboot it, I'll take the radi
 narrator: A whizzing sound came from the radio and the monitoring station came back to life.
 tom: (static) So, everything should be back online, do you copy Sue?
 sue: Ehm... yes it is, but the motion sensors in the staging area just activated...
-tom: (static) That shouldn't be possible? Damn, if one of these lunatics climbed in during the power outage I'm gonna kick his ass...
+tom: (static) That shouldn't be possible? Damn, if one of these lunatics climbed in during the power outage I'm gonna kick their ass...
 sue: Be careful, you never know what these freaks are capable off... I'm gonna watch your back Tom.
+label end
 tom: No worries... besides, I wanted to see the goods anyway \:D
+[signal arg="show_ui"]
+[end_timeline]
