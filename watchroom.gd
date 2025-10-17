@@ -3,6 +3,7 @@ extends Node3D
 func _ready() -> void:
 	Dialogic.signal_event.connect(dialogicSignal)
 	Dialogic.start("0_intro")
+	Globals.activeTv = $Moebel/TV_Level1
 
 func dialogicSignal (arg:String):
 	if arg == "show_ui":

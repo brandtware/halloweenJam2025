@@ -1,7 +1,6 @@
 extends Control
 
 var isMoving : bool = false
-@export var activeTV : Node3D
 
 func _on_move_button_down() -> void:
 	var direction : Vector3
@@ -23,5 +22,5 @@ func _on_right_button_down() -> void:
 
 
 func _on_switch_button_down() -> void:
-	if is_instance_valid(activeTV):
-		activeTV.toggle()
+	if is_instance_valid(Globals.activeTv):
+		Globals.activeTv.toggle()

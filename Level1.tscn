@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://4aeahybfjxoo"]
+[gd_scene load_steps=20 format=3 uid="uid://4aeahybfjxoo"]
 
 [ext_resource type="PackedScene" uid="uid://d8knvdtof2fr" path="res://Sarg.glb" id="1_dn5ey"]
 [ext_resource type="PackedScene" uid="uid://b84kty3sy014t" path="res://Mummy.glb" id="1_dwyiq"]
@@ -17,6 +17,10 @@ albedo_color = Color(0.17641911, 0.17641908, 0.17641908, 1)
 size = Vector3(1, 20, 0.677)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mlbie"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1bjei"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5g1s2"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_cove1"]
 
@@ -41,7 +45,6 @@ size = Vector3(5.0007324, 4.0843506, 2.0662994)
 [node name="Level1" type="Node3D"]
 
 [node name="Walls" type="Node3D" parent="."]
-visible = false
 
 [node name="Floor" type="MeshInstance3D" parent="Walls"]
 transform = Transform3D(8, 0, 0, 0, 0.05, 0, 0, 0, 10, 0, 0, 0)
@@ -87,10 +90,20 @@ transform = Transform3D(2.7464195e-09, 2.1854496e-09, 8, 5.999671, -0.0005235896
 mesh = SubResource("BoxMesh_ma5b5")
 skeleton = NodePath("../..")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="Walls/Wall3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/Wall3/StaticBody3D"]
+shape = SubResource("BoxShape3D_1bjei")
+
 [node name="Wall4" type="MeshInstance3D" parent="Walls"]
 transform = Transform3D(2.7464195e-09, 2.1854496e-09, 8, 5.999671, -0.0005235896, 0, 0.06283075, 0.04999726, -3.496911e-07, 0, 3, -5)
 mesh = SubResource("BoxMesh_ma5b5")
 skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Walls/Wall4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/Wall4/StaticBody3D"]
+shape = SubResource("BoxShape3D_5g1s2")
 
 [node name="Furniture" type="Node3D" parent="."]
 

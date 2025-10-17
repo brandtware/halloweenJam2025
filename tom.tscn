@@ -3,8 +3,9 @@
 [ext_resource type="Script" uid="uid://ce6avhpqketkh" path="res://tom.gd" id="1_85xcm"]
 [ext_resource type="PackedScene" uid="uid://birjxdd5rdx7a" path="res://tom.glb" id="1_ugvm7"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_85xcm"]
-size = Vector3(2, 5, 2)
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_85xcm"]
+radius = 2.0
+height = 15.0
 
 [node name="Tom" type="CharacterBody3D"]
 script = ExtResource("1_85xcm")
@@ -12,5 +13,5 @@ script = ExtResource("1_85xcm")
 [node name="tomMesh" parent="." instance=ExtResource("1_ugvm7")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.7906156, 0)
-shape = SubResource("BoxShape3D_85xcm")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5065436, 0)
+shape = SubResource("CapsuleShape3D_85xcm")
