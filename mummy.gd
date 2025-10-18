@@ -1,12 +1,11 @@
-extends Node3D
+extends CharacterBody3D
+class_name Mummy
 
 func _ready() -> void:
 	pass
 	
 func alert ():
-	%ChatBubble.visible = true
-	%ChatBubble.text = "???"
+	%ChatBubble.showBubble("???",3)
 
 func aggro ():
-	%ChatBubble.visible = true
-	%ChatBubble.text = "!!!"
+	%ChatBubble.showBubble("!!!",5)
