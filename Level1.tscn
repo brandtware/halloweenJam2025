@@ -63,7 +63,7 @@ script = ExtResource("1_s3sxq")
 [node name="Walls" type="Node3D" parent="."]
 
 [node name="Floor" type="MeshInstance3D" parent="Walls"]
-transform = Transform3D(9.59371, 0, 0, 0, 0.060440373, 0, 0, 0, 11.992137, -0.0014543533, 0.00082063675, -0.012276769)
+transform = Transform3D(9.59371, 0, 0, 0, 0.060440373, 0, 0, 0, 11.992137, 0.002268076, 0.00082063675, -0.014482379)
 mesh = SubResource("BoxMesh_ma5b5")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_cove1")
@@ -180,7 +180,8 @@ transform = Transform3D(8.178939e-08, 4.4703735e-22, -1.0833331, -1.0833331, -4.
 transform = Transform3D(1, 1.7806309e-36, 0, -1.7806309e-36, 1, 0, 0, 0, 1, 0, 0, 0.05)
 shape = SubResource("BoxShape3D_lmyl5")
 
-[node name="Deckel2" parent="Furniture/Sarg/Sargopharg" instance=ExtResource("2_lmyl5")]
+[node name="Deckel" parent="Furniture/Sarg/Sargopharg" instance=ExtResource("2_lmyl5")]
+unique_name_in_owner = true
 transform = Transform3D(-4.0348986e-08, -0.92307705, 2.1841494e-15, 0.92307705, -4.0348986e-08, -4.0348976e-08, 4.0348976e-08, 4.204392e-16, 0.92307705, 0.9701835, 1.464325, 0.37558833)
 
 [node name="regal" parent="Furniture" instance=ExtResource("2_cove1")]

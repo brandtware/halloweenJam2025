@@ -23,9 +23,27 @@ offset_bottom = 40.0
 texture = ExtResource("1_nob2m")
 
 [node name="TextureRect2" type="TextureRect" parent="."]
-visible = false
 layout_mode = 0
 offset_right = 626.0
 offset_bottom = 478.0
 texture = ExtResource("2_2b1iv")
 expand_mode = 3
+
+[node name="Restart" type="Button" parent="TextureRect2"]
+layout_mode = 0
+offset_left = 227.0
+offset_top = 385.0
+offset_right = 292.0
+offset_bottom = 416.0
+text = "Restart"
+
+[node name="Quit" type="Button" parent="TextureRect2"]
+layout_mode = 0
+offset_left = 385.0
+offset_top = 384.0
+offset_right = 450.0
+offset_bottom = 415.0
+text = "Quit"
+
+[connection signal="button_down" from="TextureRect2/Restart" to="." method="_on_restart_button_down"]
+[connection signal="button_down" from="TextureRect2/Quit" to="." method="_on_quit_button_down"]
