@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://i6inlj4yhv7o"]
+[gd_scene load_steps=16 format=3 uid="uid://i6inlj4yhv7o"]
 
 [ext_resource type="Script" uid="uid://o2eh7grb4kte" path="res://watchroom.gd" id="1_1hxqw"]
 [ext_resource type="PackedScene" uid="uid://doqnwis60r50t" path="res://tv.tscn" id="2_1hxqw"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://birjxdd5rdx7a" path="res://tom.glb" id="5_qqrra"]
 [ext_resource type="PackedScene" uid="uid://rys7bkfyey3g" path="res://Chair.glb" id="6_ts337"]
 [ext_resource type="PackedScene" uid="uid://b3m5hd85qtg7m" path="res://tv_ui.tscn" id="6_xrp8s"]
+[ext_resource type="PackedScene" uid="uid://ls8ilado1vs5" path="res://action_popup.tscn" id="8_xsihq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1hxqw"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -128,6 +129,9 @@ transform = Transform3D(-0.2998833, 0, 0.008366, 0, 0.29999998, 0, -0.008366, 0,
 transform = Transform3D(-0.29995385, 0, 0.005261912, 0, 0.3, 0, -0.005261912, 0, -0.29995385, -0.875309, 0.021744251, 3.4320145)
 
 [node name="TV_UI" parent="." instance=ExtResource("6_xrp8s")]
+visible = false
+
+[node name="ActionPopup" parent="." instance=ExtResource("8_xsihq")]
 visible = false
 
 [editable path="Moebel/TV_Level1"]

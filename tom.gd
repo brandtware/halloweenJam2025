@@ -35,26 +35,30 @@ func move (direction: Globals.movement):
 	
 func _process(delta: float) -> void:
 	directionChangeTimer += delta
-	if (isMoving):
-		var did_collide = move_and_collide(move_vector * delta * speed)
-		if (did_collide != null):
-			var col = did_collide.get_collider(0)
-			Globals.playerCollided.emit(col)
-			if (col is StaticBody3D):
-				get_tree().call_group("mummies","alert")
-				collisionCount +=1
-				print ("direction before collision ", move_vector)
-				isMoving = false
-				if directionChangeTimer < 1000:
-					%ChatBubble.call_deferred("showBubble",complaints.pick_random(), 2)
-				else:
-					%ChatBubble.call_deferred("showBubble",extCompaints.pick_random(), 2)
-				directionChangeTimer = 0
-			elif col is CharacterBody3D:
-				if punchable:
-					%ChatBubble.call_deferred("showBubble", "take this mummy!", 2)
-				else:
-					%ChatBubble.call_deferred("showBubble", "aaaaahhh, I touched something", 2)
+	#if (isMoving):
+	var did_collide = move_and_collide(move_vector * delta * speed, isMoving)
+	if (did_collide != null):
+		var col = did_collide.get_collider(0)
+		Globals.playerCollided.emit(col)
+		if (col is StaticBody3D):
+			get_tree().call_group("mummies","alert")
+			collisionCount +=1
+			print ("direction before collision ", move_vector)
+			isMoving = false
+			if directionChangeTimer < 1000:
+				%ChatBubble.call_deferred("showBubble",complaints.pick_random(), 2)
+			else:
+				%ChatBubble.call_deferred("showBubble",extCompaints.pick_random(), 2)
+			directionChangeTimer = 0
+		elif col is CharacterBody3D:
+			isMoving = false
+			if punchable:
+				%ChatBubble.call_deferred("showBubble", "take this mummy!", 2)
+				Globals.showActionPopup.emit("pow")
+			else:
+				%ChatBubble.call_deferred("showBubble", "aaaaahhh, I touched something", 2)
+				Globals.showActionPopup.emit("death")
 
 func isReadyToPunch (isReady : bool) -> void:
 	punchable = isReady
+	
