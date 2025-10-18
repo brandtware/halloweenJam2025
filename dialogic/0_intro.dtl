@@ -25,4 +25,5 @@ sue: Be careful, you never know what these freaks are capable off... I'm gonna w
 label end
 tom: No worries... besides, I wanted to see the goods anyway \:D
 [signal arg="show_ui"]
+jump 1_intro/
 [end_timeline]

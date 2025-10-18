@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://1j6o8fsexlui"]
+
+[ext_resource type="PackedScene" uid="uid://bsjufbvwel7pn" path="res://Deckel.glb" id="1_x0joi"]
+
+[node name="Sargdeckel" type="Node3D"]
+
+[node name="Deckel2" parent="." instance=ExtResource("1_x0joi")]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 1.3129916, 1.3022642, 0)

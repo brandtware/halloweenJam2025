@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://i6inlj4yhv7o"]
+[gd_scene load_steps=20 format=3 uid="uid://i6inlj4yhv7o"]
 
 [ext_resource type="Script" uid="uid://o2eh7grb4kte" path="res://watchroom.gd" id="1_1hxqw"]
 [ext_resource type="PackedScene" uid="uid://doqnwis60r50t" path="res://tv.tscn" id="2_1hxqw"]
@@ -33,6 +33,59 @@ albedo_color = Color(0.27047417, 0.30305916, 0.4064536, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1hxqw"]
 albedo_color = Color(0.281015, 0.21642557, 0.123957984, 1)
+
+[sub_resource type="Animation" id="Animation_xsihq"]
+resource_name = "zoom_lvl1"
+length = 2.0
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 1.1117017, 4.660428, 8.091867, 2, 1, 2.033, 2.92, 1.188)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 2, 1, 0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_i2lw2"]
+length = 0.001
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 1.1117017, 4.660428, 8.091867)
+
+[sub_resource type="Animation" id="Animation_k2mny"]
+resource_name = "zoom_lvl2"
+length = 2.0
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 1.1117017, 4.660428, 8.091867, 2, 1, 0.41, 2.92, 1.188)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0.033333335, 1, 0, 0, 0, 1, 1.9666667, 1, 0, 0, 0, 1)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ts337"]
+_data = {
+&"RESET": SubResource("Animation_i2lw2"),
+&"zoom_lvl1": SubResource("Animation_xsihq"),
+&"zoom_lvl2": SubResource("Animation_k2mny")
+}
 
 [node name="Watchroom" type="Node3D"]
 script = ExtResource("1_1hxqw")
@@ -73,8 +126,7 @@ size = Vector3(2.425293, 1, 1)
 material = SubResource("StandardMaterial3D_qqrra")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.96312034, 0.269071, 0, -0.269071, 0.96312034, 1.1117017, 4.660428, 8.091867)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1117017, 4.660428, 8.091867)
 
 [node name="Room" parent="." instance=ExtResource("3_4ws4d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.855004, 0, 0)
@@ -136,6 +188,12 @@ visible = false
 
 [node name="ActionPopup" parent="." instance=ExtResource("8_xsihq")]
 visible = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_ts337")
+}
 
 [editable path="Moebel/TV_Level1"]
 [editable path="Moebel/TV_Level1/TV_Screen"]

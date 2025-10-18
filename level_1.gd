@@ -13,16 +13,15 @@ func _process(delta: float) -> void:
 	if !isGameOver:
 		$Path3D/PathFollow3D.progress_ratio += 0.05 * delta
 
-func activate() -> void:
-	%Mummy.visible = true
-	%Tom.visible = true
+func activate(active : bool) -> void:
+	%Mummy.visible = active
+	%Tom.visible = active
 	
 func mummyCollision(text) -> void:
 	if text == "pow":
 		var tween = create_tween()
 		await tween.tween_interval(1).finished
 		
-		var mummy = %Mummy
 		%Mummy.reparent($Furniture/Sarg/Sargopharg)
 		%Mummy.position = Vector3(0.9, 0.1, -0.04)
 		%Mummy.rotation = Vector3(1.570796, -1.570796, 0.0)
@@ -30,6 +29,9 @@ func mummyCollision(text) -> void:
 		Globals.mummyCollision.emit("")
 		tween = create_tween()
 		await tween.tween_property(%Deckel, "rotation", Vector3 (-1.570796, 0, 0), 1).finished
+		%Mummy.visible = false
+		%Tom.showWaitComments = false
+		Dialogic.start("1_complete")
 	elif text == "death":
 		isGameOver = true
 	

@@ -1,0 +1,15 @@
+join tom center
+tom: Allright, I'm there... but the light is broken and my flashlight is not working... whats going on?!?
+join sue center
+sue: Ok... The camera is back online and I can see something moving.
+sue: Ehm... don't freak out, but I think there is a mummy walking around?
+tom: Are you trolling me? Come on Sue, I know it's halloween but this is silly.
+sue: I'm dead-serious Tom. What should we do?
+tom: Put it right back in the coffin, hehe.
+sue: They are callled sarcophagus... sses... si. Anyway, there is one open sarcophagus in there. Do you think you can trap it?
+tom: Sure, if I could see it.
+sue: I'll guide you... you'll be fine... (silently) I think...
+tom: What could possibly go wrong...
+narrator: TUTORIAL\: To trap a mummy, shove it from behind or the side, when it is at the top or feet of the sarcophagus.
+[signal arg="activateUI"]
+[end_timeline]

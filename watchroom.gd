@@ -7,7 +7,15 @@ func _ready() -> void:
 
 func dialogicSignal (arg:String):
 	if arg == "show_ui":
-		$Room.activate()
+		$Room.activate(true)
+		%AnimationPlayer.play("zoom_lvl1")
+	elif arg == "ZoomOut1":
+		$TV_UI.visible = false
+		%AnimationPlayer.play_backwards("zoom_lvl1")
+		Dialogic.start("2_intro")
+		$Room.activate(false)
+	elif arg == "zoom_lvl2":
+		%AnimationPlayer.play("zoom_lvl2")
+	elif arg == "activateUI":
 		$TV_UI.visible = true
-		$Camera3D.position = Vector3 (2.024, 2.905, 1.199)
-		$Camera3D.rotation = Vector3.ZERO
+		

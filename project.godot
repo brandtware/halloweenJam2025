@@ -30,7 +30,8 @@ directories/dch_directory={
 directories/dtl_directory={
 "0_intro": "res://dialogic/0_intro.dtl",
 "1_complete": "res://dialogic/1_complete.dtl",
-"1_intro": "res://dialogic/1_intro.dtl"
+"1_intro": "res://dialogic/1_intro.dtl",
+"2_intro": "res://dialogic/2_intro.dtl"
 }
 layout/style_directory={
 "": "res://dialogic/myStyle.tres",

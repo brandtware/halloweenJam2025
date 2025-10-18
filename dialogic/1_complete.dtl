@@ -1,0 +1,11 @@
+join sue center
+sue: You did it!
+join tom center
+tom: Teamwork!
+tom: Ok, I'm coming back...
+sue: Oh no. There is more movement in other rooms Tom...
+tom: Seriously?
+sue: Should I do the next one?
+tom: Nah, I'm already out here. On my way.
+[signal arg="ZoomOut1"]
+[end_timeline]

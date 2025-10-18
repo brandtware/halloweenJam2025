@@ -10,6 +10,7 @@ var complaints = ["Ouch", "Ow", "Ack", "Argh", "Crap", "Really?","SUE!"]
 var extCompaints = ["Are you kidding me?","Are you doing this on purpose?", "You think this is funny?"]
 var waiting = ["What are you waiting for, christmas?", "Are you still there?", "What now?", "Where to?", "It's really creepy here", "I hear a noise..."] 
 var punchable = false
+@export var showWaitComments : bool = true
 
 func _ready() -> void:
 	Globals.move.connect(move)
@@ -46,7 +47,7 @@ func _process(delta: float) -> void:
 	directionChangeTimer += delta
 	if (!isMoving):
 		waitTimer += delta
-		if waitTimer > 10:
+		if waitTimer > 10 && showWaitComments:
 			waitTimer = 0
 			%ChatBubble.call_deferred("showBubble",waiting.pick_random(), 2)
 	var did_collide = move_and_collide(move_vector * delta * speed, !isMoving)

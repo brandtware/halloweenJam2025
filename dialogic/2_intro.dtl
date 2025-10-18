@@ -1,0 +1,13 @@
+join tom center
+[wait time="1.0"]
+tom: Alright, I am at the next room. Gonna restart the cameras... NOW!
+[signal arg="activateCam2"]
+sue: Yep, that did it.
+sue: But... bad news, there a two mummies on the loose...
+tom: It HAS to be one of these days...
+sue: You had these before??? o_O
+tom: Nope... but there is always a first time for anything. Ready?
+[signal arg="zoom_lvl2"]
+sue: Ready!
+[signal arg="activateUI"]
+[end_timeline]
