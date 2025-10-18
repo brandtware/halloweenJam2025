@@ -29,3 +29,7 @@ func toggle():
 	else:
 		currentCam = $SubViewport/CameraView1
 	currentCam.make_current()
+	
+@export var currentViewport : Viewport :
+	get:
+		return $SubViewport

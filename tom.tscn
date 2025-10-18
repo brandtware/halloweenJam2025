@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://6seamwhf4y7t"]
+[gd_scene load_steps=5 format=3 uid="uid://6seamwhf4y7t"]
 
 [ext_resource type="Script" uid="uid://ce6avhpqketkh" path="res://tom.gd" id="1_85xcm"]
 [ext_resource type="PackedScene" uid="uid://birjxdd5rdx7a" path="res://tom.glb" id="1_ugvm7"]
+[ext_resource type="PackedScene" uid="uid://f88aeg2pfjsn" path="res://chat_bubble.tscn" id="3_j3qnj"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_85xcm"]
 radius = 2.0
@@ -11,6 +12,13 @@ height = 15.0
 script = ExtResource("1_85xcm")
 
 [node name="tomMesh" parent="." instance=ExtResource("1_ugvm7")]
+
+[node name="Marker3D" type="Marker3D" parent="tomMesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15.234287, 0)
+
+[node name="ChatBubble" parent="tomMesh/Marker3D" instance=ExtResource("3_j3qnj")]
+unique_name_in_owner = true
+visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5065436, 0)

@@ -7,6 +7,7 @@ func _ready() -> void:
 
 func dialogicSignal (arg:String):
 	if arg == "show_ui":
+		$Room.activate()
 		$TV_UI.visible = true
 		$Camera3D.position = Vector3 (2.024, 2.905, 1.199)
 		$Camera3D.rotation = Vector3.ZERO

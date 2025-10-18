@@ -2,8 +2,15 @@ extends Control
 
 var isMoving : bool = false
 
+func _ready() -> void:
+	Globals.playerCollided.connect(playerCollided)
+
+func playerCollided (_collisionObj):
+	$VBoxContainer/move.text = "move"
+	isMoving = false
+
 func _on_move_button_down() -> void:
-	var direction : Vector3
+
 	if isMoving:
 		$VBoxContainer/move.text = "move"
 		isMoving = false
