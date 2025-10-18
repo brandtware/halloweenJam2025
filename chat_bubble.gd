@@ -13,9 +13,6 @@ var tween : Tween
 		text = value
 		if is_inside_tree():
 			label.text = value
-			
-func _ready() -> void:
-	tween = create_tween()
 
 func _process(_delta):
 	#if not camera.current:

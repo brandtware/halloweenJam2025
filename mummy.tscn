@@ -1,11 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://bv88wjmj2knuc"]
+[gd_scene load_steps=5 format=3 uid="uid://bv88wjmj2knuc"]
 
 [ext_resource type="Script" uid="uid://cdy2weqere6vh" path="res://mummy.gd" id="1_366lj"]
 [ext_resource type="PackedScene" uid="uid://b84kty3sy014t" path="res://Mummy.glb" id="1_ubudb"]
 [ext_resource type="PackedScene" uid="uid://f88aeg2pfjsn" path="res://chat_bubble.tscn" id="3_xe1t8"]
 
-[node name="Mummy" type="Node3D" groups=["mummies"]]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xe1t8"]
+radius = 2.0
+height = 15.0
+
+[node name="Mummy" type="CharacterBody3D" groups=["mummies"]]
 script = ExtResource("1_366lj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-0.27, 0, -2.360415e-08, 0, 0.27, 0, 2.360415e-08, 0, -0.27, 0.008925438, 2.09467, 0.015575886)
+shape = SubResource("CapsuleShape3D_xe1t8")
 
 [node name="Mesh" parent="." instance=ExtResource("1_ubudb")]
 transform = Transform3D(-0.27, 0, -2.360415e-08, 0, 0.27, 0, 2.360415e-08, 0, -0.27, 0.008925438, 0, 0.015575886)

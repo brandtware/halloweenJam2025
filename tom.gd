@@ -8,6 +8,7 @@ var speed = 1.3
 var complaints = ["Ouch", "Ow", "Ack", "Argh", "Crap", "Really?","SUE!"]
 var extCompaints = ["Are you kidding me?","Are you doing this on purpose?", "You think this is funny?"]
 var waiting = ["What are you waiting for, christmas?", "Are you still there?", "What now?", "Where to?", "It's really creepy here", "I hear a noise..."] 
+var punchable = false
 
 func _ready() -> void:
 	Globals.move.connect(move)
@@ -37,15 +38,23 @@ func _process(delta: float) -> void:
 	if (isMoving):
 		var did_collide = move_and_collide(move_vector * delta * speed)
 		if (did_collide != null):
-			Globals.playerCollided.emit(did_collide.get_collider(0))
-			get_tree().call_group("mummies","alert")
-			collisionCount +=1
-			print ("direction before collision ", move_vector)
-			isMoving = false
-			if directionChangeTimer < 1000:
-				%ChatBubble.call_deferred("showBubble",complaints.pick_random(), 2)
-			else:
-				%ChatBubble.call_deferred("showBubble",extCompaints.pick_random(), 2)
-			
-				
-			directionChangeTimer = 0
+			var col = did_collide.get_collider(0)
+			Globals.playerCollided.emit(col)
+			if (col is StaticBody3D):
+				get_tree().call_group("mummies","alert")
+				collisionCount +=1
+				print ("direction before collision ", move_vector)
+				isMoving = false
+				if directionChangeTimer < 1000:
+					%ChatBubble.call_deferred("showBubble",complaints.pick_random(), 2)
+				else:
+					%ChatBubble.call_deferred("showBubble",extCompaints.pick_random(), 2)
+				directionChangeTimer = 0
+			elif col is CharacterBody3D:
+				if punchable:
+					%ChatBubble.call_deferred("showBubble", "take this mummy!", 2)
+				else:
+					%ChatBubble.call_deferred("showBubble", "aaaaahhh, I touched something", 2)
+
+func isReadyToPunch (isReady : bool) -> void:
+	punchable = isReady

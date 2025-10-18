@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://4aeahybfjxoo"]
+[gd_scene load_steps=26 format=3 uid="uid://4aeahybfjxoo"]
 
 [ext_resource type="PackedScene" uid="uid://d8knvdtof2fr" path="res://Sarg.glb" id="1_dn5ey"]
 [ext_resource type="PackedScene" uid="uid://6seamwhf4y7t" path="res://tom.tscn" id="1_kyxg0"]
@@ -54,13 +54,16 @@ _data = {
 }
 point_count = 4
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_wapi5"]
+size = Vector3(1.5339966, 1, 0.97135925)
+
 [node name="Level1" type="Node3D"]
 script = ExtResource("1_s3sxq")
 
 [node name="Walls" type="Node3D" parent="."]
 
 [node name="Floor" type="MeshInstance3D" parent="Walls"]
-transform = Transform3D(10, 0, 0, 0, 0.063, 0, 0, 0, 12.5, 0, 0, 0)
+transform = Transform3D(9.59371, 0, 0, 0, 0.060440373, 0, 0, 0, 11.992137, -0.0014543533, 0.00082063675, -0.012276769)
 mesh = SubResource("BoxMesh_ma5b5")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_cove1")
@@ -214,6 +217,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.01965338, 2.0507202, -0.005
 shape = SubResource("BoxShape3D_5py54")
 
 [node name="Tom" parent="." instance=ExtResource("1_kyxg0")]
+unique_name_in_owner = true
 transform = Transform3D(-6.5567085e-09, 0, -0.15, 0, 0.15, 0, 0.15, 0, -6.5567085e-09, 3.2888033, 0, 3.4794137)
 
 [node name="Path3D" type="Path3D" parent="."]
@@ -230,3 +234,13 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Tardis" parent="." instance=ExtResource("9_5py54")]
 transform = Transform3D(-0.75000006, -6.5567086e-08, 6.556708e-08, -6.5567086e-08, 0.75000006, 0, 6.5567086e-08, 5.732057e-15, 0.75, 3, 0, -2.754465)
+
+[node name="PunchArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4563353, 1.06516, 0.6579578)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PunchArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.047029495, -0.4720831, -0.31410998)
+shape = SubResource("BoxShape3D_wapi5")
+
+[connection signal="body_entered" from="PunchArea" to="." method="_on_punch_area_body_entered"]
+[connection signal="body_exited" from="PunchArea" to="." method="_on_punch_area_body_exited"]
