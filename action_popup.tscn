@@ -16,18 +16,21 @@ grow_vertical = 2
 script = ExtResource("1_geyhx")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-visible = false
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 626.0
+offset_bottom = 428.0
 texture = ExtResource("1_nob2m")
+expand_mode = 3
+stretch_mode = 5
 
 [node name="TextureRect2" type="TextureRect" parent="."]
+visible = false
 layout_mode = 0
 offset_right = 626.0
 offset_bottom = 478.0
 texture = ExtResource("2_2b1iv")
 expand_mode = 3
+stretch_mode = 5
 
 [node name="Restart" type="Button" parent="TextureRect2"]
 layout_mode = 0

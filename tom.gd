@@ -38,6 +38,7 @@ func move (direction: Globals.movement):
 			isMoving = false
 		Globals.movement.MOVE:
 			isMoving = true
+			waitTimer = 0.0
 	print ("direction", move_vector)
 	
 	
@@ -58,7 +59,7 @@ func _process(delta: float) -> void:
 			collisionCount +=1
 			print ("direction before collision ", move_vector)
 			isMoving = false
-			if directionChangeTimer > 5:
+			if directionChangeTimer > 2:
 				%ChatBubble.call_deferred("showBubble",complaints.pick_random(), 2)
 			else:
 				%ChatBubble.call_deferred("showBubble",extCompaints.pick_random(), 2)

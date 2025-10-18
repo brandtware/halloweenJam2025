@@ -28,7 +28,9 @@ directories/dch_directory={
 "tom": "res://dialogic/tom.dch"
 }
 directories/dtl_directory={
-"0_intro": "res://dialogic/0_intro.dtl"
+"0_intro": "res://dialogic/0_intro.dtl",
+"1_complete": "res://dialogic/1_complete.dtl",
+"1_intro": "res://dialogic/1_intro.dtl"
 }
 layout/style_directory={
 "": "res://dialogic/myStyle.tres",
@@ -70,6 +72,11 @@ audio/channel_defaults={
 layout/style_list=["res://dialogic/myStyle.tres"]
 layout/default_style="res://dialogic/myStyle.tres"
 variables={}
+
+[display]
+
+window/size/mode=3
+window/stretch/mode="viewport"
 
 [editor_plugins]
 

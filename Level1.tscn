@@ -4,9 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://6seamwhf4y7t" path="res://tom.tscn" id="1_kyxg0"]
 [ext_resource type="Script" uid="uid://cw7yivbo6vmyq" path="res://level_1.gd" id="1_s3sxq"]
 [ext_resource type="PackedScene" uid="uid://dpn1j8d1lo4ch" path="res://regal.glb" id="2_cove1"]
-[ext_resource type="PackedScene" uid="uid://bsjufbvwel7pn" path="res://Deckel.glb" id="2_lmyl5"]
 [ext_resource type="PackedScene" uid="uid://biy1x6sumh7bc" path="res://rack.glb" id="3_dwyiq"]
 [ext_resource type="PackedScene" uid="uid://b512rrvnaqbug" path="res://Box.glb" id="3_mlbie"]
+[ext_resource type="PackedScene" uid="uid://1j6o8fsexlui" path="res://sargdeckel.tscn" id="4_5py54"]
 [ext_resource type="PackedScene" uid="uid://bv88wjmj2knuc" path="res://mummy.tscn" id="7_mlbie"]
 [ext_resource type="PackedScene" uid="uid://brupjp16wvijy" path="res://Tardis.glb" id="9_5py54"]
 
@@ -44,7 +44,7 @@ size = Vector3(7.8704834, 3.9694824, 1)
 size = Vector3(9.562378, 4.165802, 2.0334473)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5py54"]
-size = Vector3(5.0007324, 4.0843506, 2.0662994)
+size = Vector3(7.1776123, 4.0843506, 2.0662994)
 
 [sub_resource type="Curve3D" id="Curve3D_s3sxq"]
 closed = true
@@ -55,7 +55,7 @@ _data = {
 point_count = 4
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wapi5"]
-size = Vector3(1.5339966, 1, 0.97135925)
+size = Vector3(1.2, 1, 0.971)
 
 [node name="Level1" type="Node3D"]
 script = ExtResource("1_s3sxq")
@@ -69,7 +69,7 @@ skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_cove1")
 
 [node name="Ceiling" type="MeshInstance3D" parent="Walls"]
-transform = Transform3D(10, 0, 0, 0, 0.05, 0, 0, 0, 10, 0, 6, 0)
+transform = Transform3D(10, 0, 0, 0, 0.05, 0, 0, 0, 10, -0.00030332804, 5.9998693, 0.00029307604)
 mesh = SubResource("BoxMesh_ma5b5")
 skeleton = NodePath("../..")
 
@@ -180,9 +180,9 @@ transform = Transform3D(8.178939e-08, 4.4703735e-22, -1.0833331, -1.0833331, -4.
 transform = Transform3D(1, 1.7806309e-36, 0, -1.7806309e-36, 1, 0, 0, 0, 1, 0, 0, 0.05)
 shape = SubResource("BoxShape3D_lmyl5")
 
-[node name="Deckel" parent="Furniture/Sarg/Sargopharg" instance=ExtResource("2_lmyl5")]
+[node name="Deckel" parent="Furniture/Sarg/Sargopharg" instance=ExtResource("4_5py54")]
 unique_name_in_owner = true
-transform = Transform3D(-4.0348986e-08, -0.92307705, 2.1841494e-15, 0.92307705, -4.0348986e-08, -4.0348976e-08, 4.0348976e-08, 4.204392e-16, 0.92307705, 0.9701835, 1.464325, 0.37558833)
+transform = Transform3D(0.90000004, 0, 0, 0, 0.90000004, 0, 0, 0, 0.90000004, -0.21717101, 0.33014962, 0.3509154)
 
 [node name="regal" parent="Furniture" instance=ExtResource("2_cove1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.399331, 0, -4.6778326)
@@ -214,12 +214,13 @@ transform = Transform3D(-3.4969112e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.4969112e-
 [node name="StaticBody3D" type="StaticBody3D" parent="Furniture/rack3"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Furniture/rack3/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.01965338, 2.0507202, -0.0054192543)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1080933, 2.0507202, -0.0054192543)
 shape = SubResource("BoxShape3D_5py54")
 
 [node name="Tom" parent="." instance=ExtResource("1_kyxg0")]
 unique_name_in_owner = true
 transform = Transform3D(-6.5567085e-09, 0, -0.15, 0, 0.15, 0, 0.15, 0, -6.5567085e-09, 3.2888033, 0, 3.4794137)
+visible = false
 
 [node name="Path3D" type="Path3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2524618, 0, 0)
@@ -234,7 +235,7 @@ unique_name_in_owner = true
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Tardis" parent="." instance=ExtResource("9_5py54")]
-transform = Transform3D(-0.75000006, -6.5567086e-08, 6.556708e-08, -6.5567086e-08, 0.75000006, 0, 6.5567086e-08, 5.732057e-15, 0.75, 3, 0, -2.754465)
+transform = Transform3D(-0.75000006, -6.5567086e-08, 6.556708e-08, -6.5567086e-08, 0.75000006, 0, 6.5567086e-08, 5.732057e-15, 0.75, 3.2327313, 0, -2.754465)
 
 [node name="PunchArea" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4563353, 1.06516, 0.6579578)
@@ -243,5 +244,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4563353, 1.06516, 0.657957
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.047029495, -0.4720831, -0.31410998)
 shape = SubResource("BoxShape3D_wapi5")
 
+[node name="PunchArea2" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8192265, 1.06516, 0.6579578)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PunchArea2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.21813512, -0.4720831, -0.2530375)
+shape = SubResource("BoxShape3D_wapi5")
+
 [connection signal="body_entered" from="PunchArea" to="." method="_on_punch_area_body_entered"]
 [connection signal="body_exited" from="PunchArea" to="." method="_on_punch_area_body_exited"]
+[connection signal="body_entered" from="PunchArea2" to="." method="_on_punch_area_body_entered"]
+[connection signal="body_exited" from="PunchArea2" to="." method="_on_punch_area_body_exited"]

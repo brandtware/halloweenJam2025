@@ -13,14 +13,13 @@ tom: There are boxes and boxes of old egyptian stuff, it's sooooo cool! I can't 
 [signal arg="fade_out"]
 narrator: TWO HOURS LATER
 [signal arg="fade_in"]
-narrator: A cracking sound echoes through the building.
+narrator: A cracking sound echoes through the building and the monitors switched to static. There was a sulfury scent in the air.
 [signal arg="intro_lightsOut"]
 tom: What's happening?
-narrator: There was a sulfury scent in the air. All electric lights turned off... besides the monitors, which just showed static.
 tom: Damn, the video system crashed. I am going to reboot it, I'll take the radio with me. Be right back...
 narrator: A whizzing sound came from the radio and the monitoring station came back to life.
-tom: (static) So, everything should be back online, do you copy Sue?
-sue: Ehm... yes it is, but the motion sensors in the staging area just activated...
+tom: (static) Ok, I am at the first room... video coming up... hopefully?
+sue: Ehm... yes it is, and the motion sensors in the staging area just activated...
 tom: (static) That shouldn't be possible? Damn, if one of these lunatics climbed in during the power outage I'm gonna kick their ass...
 sue: Be careful, you never know what these freaks are capable off... I'm gonna watch your back Tom.
 label end

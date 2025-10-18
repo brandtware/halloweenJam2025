@@ -15,6 +15,7 @@ func _process(delta: float) -> void:
 
 func activate() -> void:
 	%Mummy.visible = true
+	%Tom.visible = true
 	
 func mummyCollision(text) -> void:
 	if text == "pow":
@@ -28,7 +29,7 @@ func mummyCollision(text) -> void:
 		%Mummy.scale = Vector3 (0.4, 0.4, 0.4)
 		Globals.mummyCollision.emit("")
 		tween = create_tween()
-		await tween.tween_property(%Deckel, "rotation", Vector3 (-1.570796, 0, 1.570796), 1).finished
+		await tween.tween_property(%Deckel, "rotation", Vector3 (-1.570796, 0, 0), 1).finished
 	elif text == "death":
 		isGameOver = true
 	
@@ -36,7 +37,7 @@ func restart() -> void:
 	%Tom.position = Vector3 (3.289, 0, 3.479)
 	%Tom.rotation = Vector3 (0.0, -1.570796, 0.0)
 	$Path3D/PathFollow3D.progress_ratio = 0
-	Globals.showActionPopup.emit("")
+	Globals.mummyCollision.emit("")
 	isGameOver = false
 
 func _on_punch_area_body_entered(body: Node3D) -> void:

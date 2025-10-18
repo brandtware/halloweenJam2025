@@ -84,6 +84,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.855004, 0, 0)
 [node name="TV_Level1" parent="Moebel" instance=ExtResource("2_1hxqw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.074644, 2.919125, 0.0059137344)
 
+[node name="TV_Screen" parent="Moebel/TV_Level1" index="1"]
+autoCam = false
+
 [node name="CameraView1" parent="Moebel/TV_Level1/TV_Screen/SubViewport" index="0"]
 transform = Transform3D(0.42532653, 0.39822587, -0.81271976, -0.0073503945, 0.89948374, 0.43689278, 0.9050103, -0.17984828, 0.38550135, -18.684433, 2.381849, 3.7331667)
 
